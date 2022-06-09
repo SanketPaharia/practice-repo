@@ -6,13 +6,42 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Signup</title>
+        <link rel="stylesheet" href="./styles/signup.css">
     </head>
 
     <body>
+        <div id="options">
+            
+            <h3 id="homeback">
+                <a href="index.html"> Home
+                    
+                    
+                </a>
+            </h3>
+            <h3 id="signback">
+                <a href="signup.html"> Signup
+                    
+                </a>
+            </h3>
+            <h3 id="loginback">
+                <a href="login.html"> Login
+                    
+                </a>
+            </h3>
+            
+        </div>
         <div id="signup-form-div">
 
-            <form>
+            <form id="user-data">
                 <!--Write form input elements here-->
+                <h1>Signup</h1>
+                <input id="name" type="text" placeholder="Enter your Name" required/>
+                <input id="number" type="number"  placeholder="Enter your Contact" required/>
+                <input id="email" type="email"  placeholder="Enter your Email" required/>
+                <input id="password" type="text"  placeholder="Enter your Password" required/>
+
+                <input id="ssubmit" type="submit" value="Submit"/>
+                
 
             </form>
 
@@ -20,3 +49,37 @@
     </body>
 
 </html>
+<script >
+
+    let form = document.querySelector("#user-data");
+
+    let user_data = JSON.parse(localStorage.getItem("userData"))||[];
+    console.log(user_data)
+
+    function AddUser(nm,cont,mail,pass){
+        this.name = nm;
+        this.contact = cont;
+        this.email = mail;
+        this.password =pass;
+    }
+   
+   form.addEventListener("submit",function(){
+
+       event.preventDefault()
+
+       let name = form.name.value;
+       let contact = form.number.value;
+       let email = form.email.value;
+       let password = form.password.value;
+       
+
+       let s1 = new AddUser (name,contact,email,password);
+      user_data.push(s1)
+       localStorage.setItem("userData",JSON.stringify(user_data))
+       form.reset()
+       window.location.href="login.html"
+
+   })
+
+
+</script>

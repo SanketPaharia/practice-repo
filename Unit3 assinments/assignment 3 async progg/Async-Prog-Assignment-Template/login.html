@@ -9,20 +9,21 @@
         <link rel="stylesheet" href="./styles/login.css">
     </head>
 
-    <body>
+    <body  background-image: url('example_img_girl.jpg');>
+       
         <div id="options">
             
-            <h3>
-                <a href="index.html"> Home
+            <h3 id="homeback">
+                <a href="index.html" > Home
                     
                 </a>
             </h3>
-            <h3>
+            <h3 id="signback">
                 <a href="signup.html"> Signup
                     
                 </a>
             </h3>
-            <h3>
+            <h3 id="loginback">
                 <a href="login.html"> Login
                     
                 </a>
@@ -32,11 +33,11 @@
     
         <div id="login-form-div">
 
-            <form id="form">
+            <form id="login-data">
                 <!--Write form input elements here-->
                 <h1>Login</h1>
-                <input type="email" placeholder="Enter your Email">
-                <input type="text"  placeholder="Enter your Password">
+                <input id="email" type="email" placeholder="Enter your Email" required>
+                <input id="password" type="text"  placeholder="Enter your Password" required>
                 <input id="submit" type="submit" value="Submit">
                 
 
@@ -46,3 +47,41 @@
     </body>
 
 </html>
+
+<script >
+
+let data = JSON.parse(localStorage.getItem("userData"))||[];
+    console.log(data)
+
+let form = document.querySelector("#login-data")
+
+form.addEventListener("submit",function(){
+    event.preventDefault()
+
+    let email = form.email.value;
+    let password = form.password.value;
+
+    var flag = false
+    for(let i=0;i<data.length;i++){
+
+        
+        if(data[i].email ==email && data[i].password==password){
+            flag = true;
+            break;
+            
+        }
+        
+    }
+    if(flag ==true){
+        window.location.href="./index.html"
+            alert("Logged-In successfully")
+            console.log("loggedin")
+
+    }
+    else{
+        alert("Invalid credentials")
+    }
+
+})
+
+</script>

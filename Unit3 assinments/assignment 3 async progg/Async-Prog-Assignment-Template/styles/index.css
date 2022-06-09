@@ -1,19 +1,23 @@
-#navbar{
-    display: flex;
-    justify-content: space-between;
-    border : 1px solid black;
+body{
+    background-image: url("https://spiritualponderings.com/wp-content/uploads/2021/04/21.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#navbar>div{
-display: flex;
-gap: 20px
-;
+#options{
     
-}
-#option{
     display: flex;
+    justify-content: right;
+    border : 3px solid black;
+    gap: 30px;
+    font-size: 20px;
+    padding-right: 20px;
+    size: 30px;
+    height: auto;
+    width: auto;
+    
 }
 
 body{
-    display: grid;
+    background-image: "https://www.techyon.it/media/news/full_stack_1596539038_78.jpg";
 }

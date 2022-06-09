@@ -1,19 +1,66 @@
-#navbar{
-    display: flex;
-    justify-content: space-between;
-    border : 1px solid black;
+body{
+    background-image: url("https://spiritualponderings.com/wp-content/uploads/2021/04/21.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#navbar>div{
-display: flex;
-gap: 20px
-;
+
+
+#options{
+    
+    display: flex;
+    justify-content: right;
+    border : 3px solid black;
+    gap: 30px;
+    font-size: 20px;
+    padding-right: 20px;
+    justify-content:flex-end;
+}
+#signup-form-div{
+    
+    height: auto;
+    width: auto;
+    border: 2px solid black;
+    margin: auto;
+    padding :auto;
+    
+
+    
+    
+
     
 }
-#option{
+
+h1{
+    justify-content: center;
+    align-items: center;
     display: flex;
+
 }
 
-body{
-    display: grid;
+input {
+    display:block;
+    
+    gap: 10px;
+  
+    margin:auto;
+    margin-bottom: 10px;
+
+    width:400px;
+    height: 40px;
+    
+   box-shadow: 20px;
+   border-radius: 5px;
+   box-shadow: 1px 9px 14px -3px rgba(0,0,0,0.75);
 }
+#submit{
+    
+    background-color: orange;
+    font-weight:bolder;
+    color: beige;
+    width: auto;
+}
+
+
+
+
