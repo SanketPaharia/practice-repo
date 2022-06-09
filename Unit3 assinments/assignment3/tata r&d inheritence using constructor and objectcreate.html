@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+
+<script>
+
+function Product(t , brand , w , s){
+    this.type = t ;
+    this.brand= brand;
+    this.wheels = w;
+    this.size = s ;
+}
+
+// Product.prototype.discount = function (){
+//     console.log("50%discount")
+// }
+
+let p1 = new Product("petrol" , "tata", "four" ,"suv");
+p1.discount;
+console.log(p1);
+
+let p2 = new Product("diesel" , "tata" , "four" , "hatchback");
+console.log(p2)
+
+
+let obj = {
+
+    type : "petrol",
+    brand : "tata",
+    wheels : "four",
+    size: "suv"
+
+}
+
+let obj1 = Object.create(obj )
+obj1.size = "hatchback"
+console.log(obj1)
+
+
+
+
+
+</script>

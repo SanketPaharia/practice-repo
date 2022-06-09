@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+   border-collapse:collapse; 
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+tr > th {
+  background-color: teal;
+  color: white;
+}
+img {
+  height: 100px;
+  width: 100px;
+}
+button{
+    background-color: rgb(69, 156, 228);
+   display: block;
+  
+ 
+}
+#counter{
+  display: flex;
+  width: 90%;
+  margin: auto;
+
+}
+#counter p{
+  font-size: 21px;
+  margin-right: 16px;
+}
+
+    </style>
+</head>
+<body>
+  <div id="counter"></div>
+   
+    <div id="cont">
+        <table>
+        <thead>
+       <tr>
+           <th>Image</th>
+           <th>Name</th>
+           <th>Course</th>
+           <th>Unit</th>
+           <th>Batch</th>
+           <th>Remove</th>
+       </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    </div>
+</body>
+</html>
+<script>
+    let data=JSON.parse(localStorage.getItem("studentData"))||[];
+    // console.log(data)
+    count(data);
+function count(data){
+  
+  let obj={};
+  for(let i=0;i<data.length;i++){
+    if(!obj[data[i].batch]){
+      obj[data[i].batch]=1;
+    }
+    else{
+      obj[data[i].batch]++
+    }
+  }
+  document.querySelector("#counter").innerHTML=null;
+  for(let k in obj){
+  
+    let div=document.createElement("div")
+    let p=document.createElement("p")
+    p.innerText=k+" "+":-"+" "+obj[k]+" "+"|";
+    div.append(p);
+    document.querySelector("#counter").append(div)
+  }
+  
+  console.log(obj)
+}
+
+ 
+
+   display(data)
+   function display(data){
+    document.querySelector("#tbody").innerHTML=null;
+       data.forEach(function(info,i){
+
+        let nam=info.name;
+    let Url=info.imgUrl;
+    let course=info.course;
+    let batch=info.batch;
+    let unit=info.unit;
+  // console.log(nam,Url,course,batch,unit)
+
+           
+
+         let tr=document.createElement("tr");
+            let name=document.createElement("td");
+            name.innerText=nam;
+            let imgUrl=document.createElement("td");
+
+            let img=document.createElement("img");
+           img.setAttribute("src",Url)
+     
+      let imgtd=document.createElement("td");
+      imgtd.append(img)
+           let crse=document.createElement("td");
+           crse.innerText=course;
+
+            let btch=document.createElement("td");
+            btch.innerText=batch;
+
+            let unt=document.createElement("td");
+            unt.innerText=unit
+ 
+            let btntd=document.createElement("td");
+            let btn=document.createElement("button");
+            btn.addEventListener("click",function(){
+              remove(info,i)
+            })
+            btn.innerText="Remove"
+            btntd.append(btn)
+
+
+        tr.append(imgtd,name,crse,unt,btch,btntd)
+        document.querySelector("#tbody").append(tr)
+
+
+
+       })
+   }
+   let trashData=JSON.parse(localStorage.getItem("trash"))||[];
+   function remove(info,i){
+     trashData.push(data[i])
+     localStorage.setItem("trash",JSON.stringify(trashData))
+  data.splice(i,1);
+  localStorage.setItem("studentData",JSON.stringify(data))
+    display(data)
+    count(data)
+
+     console.log(data[i])
+   }
+    
+</script>

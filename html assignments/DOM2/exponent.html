@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #head {
+            text-align: center;
+            margin: auto;
+            height :60px;
+            width: 100%;
+
+            
+        }
+
+     #calci {
+         border-radius: 10px;
+         box-shadow:  rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+height: 500px;
+width: 400px;
+padding: 40px;
+margin: auto;
+     }
+
+     #box {
+
+        display: grid;
+       grid-template-rows: repeat(2,2fr);
+     grid-template-columns: repeat(2 , 2fr);
+        gap: 10px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        padding: 30px;
+        border-radius: 10px;
+     }
+
+     #box > button:hover{ 
+         background-color: teal;
+         cursor: pointer
+    }
+         
+    #p {
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+
+    }
+
+     #box > button  {
+
+        border-radius: 10px;
+        box-shadow:  rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       display: flex;
+        font-weight: bolder;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding: auto;
+        
+
+     }
+     #box>input{
+         border-radius: 5px;
+         text-align: center;
+     }
+     #p{
+         text-align: center;
+     }
+
+    </style>
+</head>
+<body>
+ <div id="calci">
+    <div id="head">
+        <h1>CALCULATOR</h1>
+    </div>
+    <div id="box">
+        <input id="inputa" placeholder="ENTER A">
+        <input id="inputb" placeholder="ENTER B">
+        <button onclick="alertbox()">Alert</button>
+        <button onclick="exp()">Click here to get exponent</button>
+        
+    </div>
+ </div>
+ <p id="p" > ANS</p>
+</body>
+</html>
+
+<script>
+
+
+
+function alertbox(){
+    let a = document.querySelector("#inputa").value;
+   let b= document.querySelector("#inputb").value;
+    alert(a*b)
+}
+
+function exp(){
+    let a = document.querySelector("#inputa").value;
+   let b= document.querySelector("#inputb").value;
+var sum = 1;
+   for(let j = 1 ;j<=b;j++){
+       sum = sum*a
+
+   }
+
+document.querySelector("#p").innerText = sum;
+}
+
+
+
+</script>

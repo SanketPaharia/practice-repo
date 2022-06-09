@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student Data</title>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      #count{
+        height: 60px;
+        width: 100%;
+      }
+      #container{
+        width: 60%;
+        margin: auto;
+       
+        
+        padding: 16px;
+      }
+      h1{
+        text-align: center;
+      }
+      input{
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        width: 60%;
+        padding: 11px 8px;
+      }
+      #F-submit{
+        width: 30%;
+      }
+      button{
+        display: block;
+        margin: auto;
+        padding: 11px;
+        margin-top: 10px;
+      }
+
+    </style>
+</head>
+<body>
+  <div id="count"></div>
+    <div id="container">
+      <h1>Add Student Data</h1>
+      <form id="student-data">
+    <input id="name" type="text" placeholder="Enter Name" required/>
+    <input id="Url" type="url" placeholder="Enter imageUrl" required/>
+    <input id="course" type="text" placeholder="Enter Course" required/>  
+    <input id="batch" type="text" placeholder="Enter Batch.  e.g:-fw01" required/>
+    <input id="unit"  type="text" placeholder="Enter Unit" required/>
+    <input id="F-submit" type="submit" value="Submit"/>
+      </form>
+    </div>
+    <button id="btn">Dashboard</button>
+</body>
+</html>
+<script>
+  let form=document.querySelector("#student-data");
+  let btn=document.querySelector("#btn").addEventListener("click",function(){
+    window.location.href="dashbord.html"
+  })
+
+  let student_data=JSON.parse(localStorage.getItem("studentData"))||[];
+  console.log(student_data)
+  function AddStudent(nm,url,crse,btch,unit){
+    
+    this.name=nm;
+    this.imgUrl=url;
+    this.course=crse;
+    this.batch=btch;
+    this.unit=unit;
+  }
+
+  form.addEventListener("submit",function(){
+    event.preventDefault()
+    let name=form.name.value;
+    let imgUrl=form.Url.value;
+    let course=form.course.value;
+    let batch=form.batch.value;
+    let unit=form.unit.value;
+ 
+    let s1=new AddStudent(name,imgUrl,course,batch,unit);
+    student_data.push(s1);
+    localStorage.setItem("studentData",JSON.stringify(student_data))
+    form.reset()
+  })
+  // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRChm7pTRnWweGjt0Evh5p6rcdD1XqcquWwpg&usqp=CAU
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form>
+        <input id="city" type="text" placeholder="Enter city" />
+        <input type="submit" value="submit" />
+    </form>
+      <div id="container"></div>
+</body>
+</html>
+<script>
+
+    const api_key = "29105d5946430c54208c732bc5f5c351" ;
+    let city = document.querySelector("#city").value
+
+    document.querySelector("form").addEventListener("submit", getData);
+
+   async function getData(){
+
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api_key
+    /* console.log(url) */
+      let res = await fetch(url);
+        // as await only works with async we need to put it
+      let data = await res.json()
+
+      append(data)
+
+       console.log(data)
+    }
+
+/*    getData()
+ */
+
+ function append(data){
+     let container = document.getElementById("container");
+     container.innerHTML =null;
+
+    let h3 = document.createElement("h3");
+    h3.innerText = data.name;
+
+    let p1 = document.createElement("p");
+    h3.innerText = "temp :" + data.main.temp;
+
+    let p2 = document.createElement("p");
+    h3.innerText = "Max temp :" + data.main.temp_min;
+
+    let p3 = document.createElement("p");
+    h3.innerText = "Min_temp" +data.main.temp_max;
+
+    container.append(h3,p1,p2,p3)
+ }
+ </script>
