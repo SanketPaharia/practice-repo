@@ -1,0 +1,42 @@
+body{
+    background-image: url("https://spiritualponderings.com/wp-content/uploads/2021/04/21.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#options{
+    
+    display: flex;
+    justify-content: right;
+    border : 3px solid black;
+    gap: 30px;
+    font-size: 20px;
+    padding-right: 20px;
+    size: 30px;
+    height: auto;
+    width: auto;
+    
+}
+
+body{
+    background-image: "https://www.techyon.it/media/news/full_stack_1596539038_78.jpg";
+}
+
+#movies{
+
+    display: grid;
+    grid-template-columns: auto  auto;
+    justify-content:space-around
+    
+
+}
+
+#movies>div>{
+    
+    row-gap: 80px;
+    width: 400px;
+    height: 300px;
+    justify-content: center;
+    text-align: center;
+    font: 600;
+}

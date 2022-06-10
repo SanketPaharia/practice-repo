@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="./styles/login.css">
+    </head>
+
+    <body>
+       
+        <div id="options">
+            
+            <h3 id="homeback">
+                <a href="index.html" > Home
+                    
+                </a>
+            </h3>
+            <h3 id="signback">
+                <a href="signup.html"> Signup
+                    
+                </a>
+            </h3>
+            <h3 id="loginback">
+                <a href="login.html"> Login
+                    
+                </a>
+            </h3>
+            
+        </div>
+    
+        <div id="login-form-div">
+
+            <form id="login-data">
+                <!--Write form input elements here-->
+                <h1>Login</h1>
+                <input id="email" type="email" placeholder="Enter your Email" required>
+                <input id="password" type="text"  placeholder="Enter your Password" required>
+                <input id="submit" type="submit" value="Submit">
+                
+
+            </form>
+
+        </div>
+    </body>
+
+</html>
+
+<script >
+
+let data = JSON.parse(localStorage.getItem("userData"))||[];
+    console.log(data)
+
+let form = document.querySelector("#login-data")
+
+form.addEventListener("submit",function(){
+    event.preventDefault()
+
+    let email = form.email.value;
+    let password = form.password.value;
+
+    var flag = false
+    for(let i=0;i<data.length;i++){
+
+        
+        if(data[i].email ==email && data[i].password==password){
+            flag = true;
+            break;
+            
+        }
+        
+    }
+    if(flag ==true){
+        window.location.href="./index.html"
+            alert("Logged-In successfully")
+            console.log("loggedin")
+
+    }
+    else{
+        alert("Invalid credentials")
+    }
+
+})
+
+</script>

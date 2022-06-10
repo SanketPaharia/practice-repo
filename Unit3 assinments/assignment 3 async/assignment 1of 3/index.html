@@ -34,16 +34,40 @@
 
         <div id="slideshow">
             <!--Show Slideshow here-->
+            <img id="imgg" src="http://www.tutorialsscripts.com/free-icons/programming-language/java-icons/purple-java-icon-256-x-256.gif" width="2050" height="720" name="image">
 
         </div>
 
         <div id="sort-buttons">
 
             <!--Add sorting here-->
+            
         </div>
         <div id="movies">
             <!--Show list of movies here-->
+
         </div>
     </body>
 
 </html>
+
+<script>
+    var image =document.getElementById("imgg")
+
+    let array = [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xB3J7JHZ6zfq6kTuTfXo7OFBFye4NsKJQQ&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYrCE36vPJUdsFOiuv8iKijGf9Kq_eW3QQMg&usqp=CAU",
+        "https://cdn.pixabay.com/photo/2014/12/08/02/59/benches-560435_960_720.jpg"
+    ]
+    var index=0;
+function slide()
+{
+    image.setAttribute("src",array[index]);
+    index++;
+    if(index>=array.length)
+    {
+    index=0;
+    }
+}
+setInterval("slide()",2000);
+</script>
