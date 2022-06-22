@@ -1,0 +1,5 @@
+#news_result{
+
+    display: grid;
+    grid-template-columns: auto auto;
+}
