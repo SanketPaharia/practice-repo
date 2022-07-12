@@ -1,0 +1,28 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    border : 1px solid black;
+    background-color: black;
+    color: aliceblue;
+
+}
+
+#navbar>div{
+display: flex;
+gap: 20px
+;
+}
+div>h3>a{
+    
+    color: antiquewhite;
+
+}
+    
+
+#option{
+    display: flex;
+}
+
+body{
+    display: grid;
+}

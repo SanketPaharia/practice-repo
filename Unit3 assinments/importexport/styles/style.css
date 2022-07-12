@@ -1,0 +1,25 @@
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    border : 1px solid black;
+    background-color: black;
+    color: aliceblue;
+
+}
+
+#navbar>h3>a{
+display: flex;
+gap: 20px;
+margin-left: 50px;
+margin-right: 50px;
+}
+div>h3>a{
+    
+    color: antiquewhite;
+
+}
+
+body{
+    background: url("https://images.unsplash.com/photo-1653890582970-ab59a9024f42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwMXx4alBSNGhsa0JHQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60");
+    background-size:auto ;
+}
