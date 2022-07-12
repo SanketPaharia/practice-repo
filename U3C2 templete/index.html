@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+
+      
+      #navbar{
+        display: flex;
+        gap: 50px;
+        background-color: aqua;
+        height: 50px;
+        justify-content: flex-end;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10opx;
+        font-weight: bolder;
+        border: 1px solid black
+      }
+      #navbar > div{
+        border: 1px solid black;
+        height: 20px;
+        padding: 10px;
+        background-color: aquamarine;
+        border-radius: 10px;
+        
+
+      }
+
+      #groceries{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+        font-weight: bolder;
+        border :1px solid black
+      }
+      #groceries >div{
+
+        border: 1px solid red;
+        height: 500px;
+        width: 500px;
+        margin: 20px;
+      }
+
+     #groceries>div>div >img {
+        height: 400px;
+        width: 500px;
+      }
+
+      .add_to_cart{
+        cursor: pointer;
+      }
+      
+
+
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <div>login</div>
+      <div>Sign-Up</div>
+      <div id="cart" >  <a href="cart.html">Cart</a> </div>
+      <div id="wallet">700</div>
+      
+      <!-- Give cart link for navigation with id:- cart   -->
+      <!-- For wallet amount Show only number i.e only "500", no extra text like "amount = 500" with id :- "wallet" -->
+    </div>
+
+    <div id="groceries"> </div>
+
+    <!--Show all groceries here in grid format-->
+    <!-- add an add to cart button to each item, give it HTML class as 'add_to_cart' -->
+  </body>
+</html>
+
+<script src="./scripts/index.js">
+  
+
+ 
+
+     
+
+
+</script>

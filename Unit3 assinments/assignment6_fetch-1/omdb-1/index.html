@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="query" placeholder="CITY Name">
+    <button onclick="getData()">button</button>
+
+    <div id="container"></div>
+
+       
+                
+                
+</body>
+</html>
+<script>
+
+
+    var key = "29105d5946430c54208c732bc5f5c351"
+
+   // var api = https://api.openweathermap.org/data/2.5/weather?q=jaipur&appid=29105d5946430c54208c732bc5f5c351
+
+    function getData(){
+        var city =document.getElementById("query").value;
+
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`
+    
+        fetch(url).then(function (res){
+            return res.json()
+            
+        }).then (function (res){
+            console.log(res)
+            append(res)
+        })
+    
+    }
+
+    function append(data){
+
+        let url = ` https://maps.google.com/maps?q=${data.name}&t=&z=11&ie=UTF8&iwloc=&output=embed` ;
+
+        let container = document.getElementById('container');
+        
+        let h2 = document.createElement('h2');
+        h2.innerText =data.name
+
+        let temp =document.createElement('p')
+        temp.innerText = `MinTemp :- ${data.main.temp_min}`
+
+        let maxtemp =document.createElement('p')
+        maxtemp.innerText = `MinTemp :- ${data.main.temp_max}`
+        
+        container.append(h2 ,temp,maxtemp);
+
+        let iframe =document.getElementById('gmap_canvas')
+        iframe.src =url
+    }
+
+
+</script>

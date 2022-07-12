@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: auto auto ;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" placeholder="input" id="query">
+    <button onclick="search()">search</button>
+
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+
+    var api_key = 'AIzaSyDmRuPDicLmWFgOG4pA1UpYpu9muGgQvUU'
+   // let url = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&key=[YOUR_API_KEY]'
+
+    let search = () => {
+        let query = document.getElementById('query').value;
+        getData(query)
+    }
+
+    let getData = async (query) =>{
+
+       // let url = `https://youtube.googleapis.com/youtube/3/search?part=snippet&maxResults=20&q=${query}&key=${api_key}` 
+        let url =`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${query}&key=AIzaSyDmRuPDicLmWFgOG4pA1UpYpu9muGgQvUU`
+       let res = await fetch(url);
+       let data = await res.json();
+       append(data.items)
+
+       console.log(data);
+    }
+        // snippet --> title
+        // snippet --> thubnails --> medium -->url
+    let append = (data) =>{
+        let container = document.getElementById("container");
+        container.innerHTML=null;
+        data.forEach((el) => {
+            
+
+        let img = document.createElement('img')
+        img.src = el.snippet.thumbnails.medium.url;
+
+        let h3 = document.createElement('h3')
+        h3.innerText = el.snippet.title;
+
+        let div = document.createElement('div')
+        div.onclick = () =>{
+            saveVideo(el)
+        }
+        div.setAttribute('class' , "video");
+        div.append(img,h3);
+
+        container.append(div)
+
+
+        });
+    }
+
+    let saveVideo = (data)=>{
+        localStorage.setItem("video", JSON.stringify(data))
+        window.location.href= "video.html"
+    }
+
+</script>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #orderid{
+            justify-content: right;
+            align-items: flex-end;
+            border: 1px solid black;
+            padding-left: 1400px;
+        }
+        img{
+            justify-content: center;
+            align-items: center;
+            padding-left: 600px;
+        }
+        body {
+            background-image: url("https://static.dezeen.com/uploads/2021/02/mcdonalds-playful-packaging-pearlfisher-design__dezeen_2364_col_2.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="orderid"> Order ID</div>
+    <form id="form" >
+<input type="checkbox" id="item1" value="burger">
+<label for="item1"> Burger</label><br>
+<input type="checkbox" id="item2" value="pizza">
+<label for="item2"> Pizza</label><br>
+<input type="checkbox" id="item3" value="coke">
+<label for="item3"> Coke</label><br>
+<input type="checkbox" id="item4" value="fries">
+<label for="item4"> Fries</label><br>
+
+<button id="btn" onclick="content()">Order Food</button>
+    </form>
+    <img id="img" src="">
+</body>
+</html>
+<script>
+
+
+let form = document.getElementById("form")
+let image = document.getElementById("img")
+let orderid = document.getElementById("orderid")
+
+function order() {
+    return true;
+}
+
+let p1 = new Promise (function (resolve,reject){
+
+    let pin = order();
+
+    setTimeout(function(){
+
+    if(pin){
+        resolve("order successful")
+    }
+    else{
+        reject("try again later")
+    }
+
+    }, 3000)
+    
+});
+
+// p1.then(function(ress){
+//     console.log(ress)
+//     image.src = "https://c.tenor.com/K2UGDd4acJUAAAAM/load-loading.gif"
+// })
+
+// p1.catch(function (rejj){
+//     console.log(rejj)
+//     image.src ="https://c.tenor.com/flmQIupAKBkAAAAC/steven-he-failure.gif"
+// })
+
+async function content(){
+    event.preventDefault()
+
+    var burger = document.getElementById("item1");  
+  var pizza= document.getElementById("item2");  
+  var coke= document.getElementById("item3"); 
+  var fries= document.getElementById("item4"); 
+
+    try {
+        let res = await p1;
+        console.log(res);
+        if (burger.checked == true){
+     image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT53KShxphmjGq-fjsm6Dyp1h4qV40bi03PSw&usqp=CAU"
+     orderid.innerText = "Orderid : 00012"   
+    }
+       else  if (pizza.checked == true){
+     image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFt3zdNhHiowYZB24daw0PpXGI7XZHHvXDPw&usqp=CAU"
+     orderid.innerText = "Orderid : 00312"     
+    }
+       else if (coke.checked == true){
+     image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9gtmLDC2pSNtE0gycAit7ZO4iafERQka1PA&usqp=CAU"
+     orderid.innerText = "Orderid : 00212"     
+    }
+       else if (fries.checked == true){
+     image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ5RSW53sMydSz0Ss2BbF2a_FA4Lc1bfddug&usqp=CAU"
+     orderid.innerText = "Orderid : 00156"      
+    }
+
+    }
+    catch (err){
+        console.log(err)
+  image.src ="https://c.tenor.com/flmQIupAKBkAAAAC/steven-he-failure.gif"
+
+    }
+    
+}
+
+</script>

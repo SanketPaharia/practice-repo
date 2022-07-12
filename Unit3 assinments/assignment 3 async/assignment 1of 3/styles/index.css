@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://spiritualponderings.com/wp-content/uploads/2021/04/21.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2022/06/02/11/18/wave-7237725_960_720.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -18,6 +18,12 @@ body{
     
 }
 
-body{
-    background-image: "https://www.techyon.it/media/news/full_stack_1596539038_78.jpg";
+#slideshow >img{
+   justify-content: center;
+   align-items: center;
+  
+   padding-left: 500px;
+   padding-right: 00px;
+
+
 }
