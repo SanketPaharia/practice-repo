@@ -23,3 +23,62 @@ body{
     background: url("https://images.unsplash.com/photo-1653890582970-ab59a9024f42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwMXx4alBSNGhsa0JHQXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60");
     background-size:auto ;
 }
+
+.box{
+    width: 100%;
+  
+}
+
+#search{
+    justify-content: center;
+    margin: 0 auto;
+    display:block;
+  /*   margin-left: 620px;  */
+    margin-top: 40px; 
+    height: 50px;
+    width: 250px;
+    font-size: larger;
+    padding-left: 30px;
+    background-color: black;
+    font: bold;
+
+    color: aliceblue;
+    
+}
+#container{
+    
+   /*  border: 2px solid black; */
+   
+   
+    display: grid;
+    grid-template-columns: auto auto;
+    
+    justify-content:flex-start;
+    align-items: center;
+    padding-left: 15%;
+     
+
+}
+#container>div{
+  
+padding:12%;
+height: 300px;
+width: 15   0px;
+justify-content: center;
+
+
+/* border: 5px solid white; */
+width: fit-content;
+
+}
+img{
+    max-width: 60%;
+    max-height: 10%;
+    border-radius: 10px;
+    /* remove extra space below image */
+}
+#container>div>div{
+    justify-content: center;
+    align-items:center;
+     
+}

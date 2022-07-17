@@ -1,42 +1,78 @@
 import navbar from "../components/navbar.js"
 
+document.getElementById("navbar").innerHTML =navbar
 console.log(navbar)
 
-document.getElementById("navbar").innerHTML =navbar
+
+
+ //document.getElementById("search").addEventListener("onkeypress" , handle(event))
+   // console.log(query)
+
+  document.getElementById('search').addEventListener('input', function onEvent(event) {
+      /*  if (event.key === "Enter") {
+           // Do something
+           document.querySelector("#container").innerHTML === null
+           
+       } */
+       getData()
+   });
+
 
 
 async function getData() {
+    let query =  document.getElementById("search").value
+    console.log(query)
  
-    let url = `www.themealdb.com/api/json/v1/1/list.php?c=list`
+    let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
 
     let res = await fetch(url)
 
     let data =  await res.json()
     console.log(data)
-    //append(data)
+   
+    append(data)
 
 
 }
-getData()
 
-/* let append = (data) => {
-    let cont = document.getElementById("container")
+function append(ans){
+   // console.log(ans.hotels[0].Images.one)
+   let container = document.querySelector("#container")
+   container.innerHTML =null
+   
 
-    data.forEach((image,title ,price) => {
+  for(let i=0;i<ans.meals.length ;i++){
 
-        let img = document.createElement('img')
-        img.src = image;
+ 
+    let nam = ans.meals[i].strMeal;
+    let url =ans.meals[i].strMealThumb;
+   
+    console.log(nam,url)
 
-        let t = document.createElement('h3')
-        t.innerText =title;
 
-        let p = document.createElement('p')
-        p.innerText = price;
+    let div = document.createElement("div")
+    div.setAttribute("id" , "meals_list")
 
-        let div = document.createElement('div')
-        div.append(img , t ,p)
-
-        cont.append(div)
         
-    });
-} */
+        let img = document.createElement("img")
+            img.setAttribute ( "src",url)
+        let div1 = document.createElement("div")
+            div1.append(img)
+        let div2 = document.createElement("div")
+            div2.innerHTML = nam
+   
+        let div4 = document.createElement("button")
+            div4.innerText = "Book Now"
+            div4.setAttribute("class" , 'book')
+           
+          
+          
+
+        div.append(div1,div2,div4)
+        container.append(div)
+   
+  }
+
+  //document.getElementById(search).value === null
+
+}
